@@ -1,0 +1,17 @@
+name: llama 2
+context_size: 2048
+f16: true
+threads: 11
+gpu_layers: 90
+mmap: true
+parameters:
+  model: huggingface://TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf
+  temperature: 0.5
+  top_k: 40
+  top_p: 0.95
+template:
+
+  chat: &template |
+    Instruct: {{.Input}}
+    Output:
+  completion: *template
